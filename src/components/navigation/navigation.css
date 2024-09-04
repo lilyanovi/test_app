@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  position: sticky;
+  bottom: 0;
+  background-color: #FFFFFF;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: black;
+}
+
+.navigation__link:hover,  .navigation__link:active{
+  color: rgb(236, 121, 5);
+}
+
+.active {
+  color: rgb(236, 121, 5);
+}

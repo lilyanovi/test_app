@@ -15,16 +15,22 @@ function Cards (): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
 
   const changeVisibleBooks = useCallback(() => {
-    if(window.scrollY >= document.documentElement.scrollHeight - window.innerHeight) {
+    const scrolledHeight = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const fullHeight = document.documentElement.scrollHeight;
+
+    if (Math.ceil(scrolledHeight + viewportHeight) >= fullHeight) {
       setVisibleBooksCount(visibleBooks.length)
     }
   }, [visibleBooks.length]);
 
   useEffect(() => {
     document.addEventListener('scroll', changeVisibleBooks);
+    document.addEventListener('resize', changeVisibleBooks);
         
     return function () {
       document.removeEventListener('scroll', changeVisibleBooks);
+      document.removeEventListener('resize', changeVisibleBooks);
     };
   }, [changeVisibleBooks]);
 

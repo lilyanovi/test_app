@@ -15,7 +15,7 @@ function Cards (): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
 
   const changeVisibleBooks = useCallback(() => {
-    if(window.scrollY >= document.documentElement.scrollHeight - window.innerHeight - 50) {
+    if(window.scrollY >= document.documentElement.scrollHeight - window.innerHeight) {
       setVisibleBooksCount(visibleBooks.length)
     }
   }, [visibleBooks.length]);
